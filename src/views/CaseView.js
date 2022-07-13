@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCase} from "../store/actions/caseAction";
 import axios from "axios";
 import "./CaseView.css";
+import { NavLink } from "react-router-dom";
 
 const CaseView=()=>{
     const dispatch=useDispatch()
@@ -30,15 +31,12 @@ const CaseView=()=>{
                 return(
                     <>
                     {item.tur==="kanat" && (<div className="caseType">
-                        <a onClick={()=>{
-                    }} >
-                        <CaseCard key={item.isim} caseName={item.isim}
+                    <NavLink to={`/open/${item.kasaKey}`}><CaseCard key={item.isim} caseName={item.isim}
                      casePrice={item.fiyat} 
                      caseImg={item.kasaSrc}
                     caseType={item.tur}
                     baseSrc={item.bestSrc}
-                     />
-                    </a> 
+                     /></NavLink> 
                     </div>)}</>
                 )
             })}

@@ -1,7 +1,7 @@
 .openView{
     display: flex;
     flex-direction: column;
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(160, 160, 160);
     min-height:100vh;
     max-width: 100%;
     justify-content: flex-start;
@@ -10,4 +10,9 @@
 }
 .headerayar{
     margin: 4.2em 0em 0em 10em;
+}
+.itemList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

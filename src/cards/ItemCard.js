@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import './CaseCard.css';
+import './Card.css';
 
 const ItemCard = ({itemName,itemRate,itemImg,itemType,rareRate}) => {
     return(
@@ -19,7 +19,7 @@ const ItemCard = ({itemName,itemRate,itemImg,itemType,rareRate}) => {
 }
 ItemCard.propTypes = {
     itemName: PropTypes.string,
-    itemRate: PropTypes.string,
+    itemRate: PropTypes.number,
     itemImg: PropTypes.string,
     itemType: PropTypes.string,
     rareRate: PropTypes.string

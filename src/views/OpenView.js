@@ -1,41 +1,52 @@
 import './View.css'
-
+import { useEffect ,useState} from 'react'
 import {useParams} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import OpenCaseCard from '../cards/OpenCaseCard'
 import axios from 'axios'
-import { useEffect } from 'react'
+import ItemCard from '../cards/ItemCard'
+
 const OpenView=()=>{
     const {id}=useParams()
     const caseState = useSelector((state => state.case))
-    // const [case, setCase] = useState();
+    const [caseInfo, setCaseInfo] = useState(0);
     console.log(caseState)
     const fetchData=async()=>{
         const response=await axios.get(`http://localhost:5000/api/case/n/`,{
             params:{
                 name:id
             }
-           
         })
-         console.log(response)
+        setCaseInfo(response.data)
     };
     useEffect(()=>{
         fetchData()
      },[])
+     console.log("itemsss",caseInfo)
+     console.log("caseeee",caseState)
   return (
     <>
     <div>.</div>
     <div className='headerayar'>.</div>
     <div className="openView">
     <div>
-        <OpenCaseCard key={caseState.case[0].isim} caseName={caseState.case[0].isim}
-                     casePrice={caseState.case[0].fiyat} 
-                     caseImg={caseState.case[0].kasaSrc}
-                    caseType={caseState.case[0].tur}
-                    baseSrc={caseState.case[0].bestSrc}
+        <OpenCaseCard key={caseInfo.kasaKey} caseName={caseInfo.isim}
+                     casePrice={caseInfo.fiyat} 
+                     caseImg={caseInfo.kasaSrc}
+                    caseType={caseInfo.tur}
+                    baseSrc={caseInfo.bestSrc}
                      />
     </div>
-    <div>
+    <div className='itemList'>
+        {caseInfo!==0 && (caseInfo.items.map((item)=>{
+                return(
+                    
+                    <ItemCard key={item.itemKey} itemName={item.itemName}
+                     itemRate={item.itemYuzdeOran} 
+                     itemImg={item.itemSrc}
+                     /> 
+                )
+            }))}
 
     </div>
     
