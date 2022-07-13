@@ -1,14 +1,44 @@
-import React from "react";
+import React ,{useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import { setUser } from "../../store/actions/loginAction";
+import { loginKey , registerKey} from "../../store/actions/logRegAction";
 import './Header.css'
 
+
+
 const Header = () =>{
+    const user={
+        bakiye:20,
+        userName:"ali",
+        itemList:null,
+        __id:""
+    }
+    const keyState=useSelector(state=>state.logRegKey)
+    const dispatch=useDispatch()
+    const caseState=useSelector(state=>state.case)
+    const userState=useSelector(state=>state.user)
+    const [token, setToken] = useState(true);
     return(
         <nav className="headerNav"> 
-        <a href="/" className="webHeader">GROWCASE.net</a>
-        <div className="loginRegister">
-            <a href="#" className="logRegHeader">login</a>
-            <a href="#" className="logRegHeader">register</a>
-        </div>
+        <a onClick={()=>{
+            // setToken(!token)
+            dispatch(setUser(user))
+            console.log(user)
+                }} className="webHeader">GROWCASE.net</a>
+        {token&&(<div className="userLogin">
+            <div>{userState.userName} </div>
+            <div>hesap</div>
+        </div>)}
+        {!token&&(<div className="loginRegister">
+            <a onClick={()=>{
+                dispatch(loginKey())
+                console.log(keyState)
+                }} className="logRegHeader">login</a>
+            <a onClick={()=>{
+                dispatch(registerKey())
+                console.log(keyState)
+                }} className="logRegHeader">register</a>
+        </div>)}
         </nav>
     )
     

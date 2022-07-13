@@ -1,0 +1,41 @@
+.case{
+    background-color: rgba(0, 0, 0, 0.9);
+    background-size:cover ;
+    min-height: 700px;
+    
+    border-bottom: 5px rgb(255, 0, 0)double;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 190px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.cardCase{
+
+}
+.itemCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 400px;
+    background-color: rgba(243, 146, 107, 0.9);
+}
+.itemCardBody{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    min-height: 400px;
+    background-color: rgba(253, 38, 38, 0.3);
+    flex-wrap: wrap;
+}
+.caseCardBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 400px;
+    background-color: rgba(118, 184, 223, 0.7);
+}

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+.caseCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.caseImg{
+    margin: 10px;
+    width: 210px;
+    height: 150px;
+}
+.caseCard:hover{
+    
+}
+.caseName{
+    color: rgb(50, 50, 50);
+}
+.itemCard{
+    max-width: 120px;
+    max-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border: 2px rgba(44, 10, 10, 0.164) double;
+    box-shadow: 2px 4px 6px rgb(200, 200, 200);
+}
+.itemImg{
+    margin: 2px;
+    width: 80px;
+    height: 80px;
+}
+.itemCard:hover{
+    box-shadow: 2px 4px 6px rgb(200, 50, 200);
+}
+.itemName{
+    font-family: 'Yellowtail', cursive, serif;
+    color: rgb(250, 50, 50);
+    font-size: 16px;
+    margin-top: 2px;
+}
+.itemRate{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(50, 50, 50);
+    font-size: 10px;
+}
+.itemInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+.caseItemImg{
+    position: absolute;
+    margin: -5px 0px 0px -5px;
+    width: 125px;
+    height: 80px;
+}
+.caseItemImg:hover{
+    position: absolute;
+    margin: -25px 0px 0px -5px;
+    width: 140px;
+    height: 95px;
+}

@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import './Header.css'
 
 const NavBar = () =>{
+    const userState=useSelector(state=>state.user)
     return(
         <nav className="navBar"> 
         <nav className="navBtnBar">
@@ -10,7 +12,7 @@ const NavBar = () =>{
         <header className="navHeaders">WL Deposit Withdrawal</header>
         </nav>
         <div className="WlDl">
-            WL DL miktarı
+            {userState.blance} wl
         </div>
 
         </nav>
