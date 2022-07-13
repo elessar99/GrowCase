@@ -7,12 +7,7 @@ import './Header.css'
 
 
 const Header = () =>{
-    const user={
-        bakiye:20,
-        userName:"ali",
-        itemList:null,
-        __id:""
-    }
+    
     const keyState=useSelector(state=>state.logRegKey)
     const dispatch=useDispatch()
     const caseState=useSelector(state=>state.case)
@@ -21,9 +16,7 @@ const Header = () =>{
     return(
         <nav className="headerNav"> 
         <a onClick={()=>{
-            // setToken(!token)
-            dispatch(setUser(user))
-            console.log(user)
+            setToken(!token)
                 }} className="webHeader">GROWCASE.net</a>
         {token&&(<div className="userLogin">
             <div>{userState.userName} </div>

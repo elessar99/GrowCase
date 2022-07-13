@@ -55,6 +55,7 @@
     align-items: flex-end;
 }
 .caseItemImg{
+    z-index: 0;
     position: absolute;
     margin: -5px 0px 0px -5px;
     width: 125px;
@@ -65,4 +66,30 @@
     margin: -25px 0px 0px -5px;
     width: 140px;
     height: 95px;
+}
+.openCaseName{
+    font-size: 2em;
+    margin-bottom: 0.2em;
+    margin-right: 0.5em;
+    font-family: 'Times New Roman', Times, serif;
+}
+.openCaseCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5em;
+}
+.caseOpenBtn{
+    border: 1px rgb(50, 200, 50) double;
+    margin-top: 2em;
+    width: 9em;
+    height: 2em;
+    background-color: rgb(150, 250, 150);
+}
+.wlimage{
+    margin: auto;
+    padding: 0;
+    width: 1em;
+    height: 1em;
 }

@@ -3,9 +3,9 @@ import {useEffect,useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {setCase} from "../store/actions/caseAction";
 import axios from "axios";
-import "./HomeView.css";
+import "./CaseView.css";
 
-const HomeView=()=>{
+const CaseView=()=>{
     const dispatch=useDispatch()
     const [data,setData]=useState([])
     const fetchData=async()=>{
@@ -68,4 +68,4 @@ const HomeView=()=>{
         
     )
 }
-export default  HomeView
+export default  CaseView

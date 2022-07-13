@@ -5,7 +5,7 @@ function loginReducer(state=loginState,action){
     switch (action.type) {
         case SET_USER:
             return {
-                blance:action.payload.bakiye,
+                blance:action.payload.blance,
                 userName:action.payload.userName,
                 itemList:action.payload.userItems,
                 __id:action.payload.__id

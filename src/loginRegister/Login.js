@@ -7,23 +7,42 @@ import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import { homeKey, registerKey } from "../store/actions/logRegAction";
 import { setToken } from "../store/actions/loginTokenAction";
+import { setUser } from "../store/actions/loginAction";
 
 const Login = ({rhBtn,logBtn}) => {
+    const user={
+        bakiye:20,
+        userName:"ali",
+        itemList:null,
+        __id:""
+    }
     const dispatch=useDispatch()
     const [loginBtn, setLoginBtn] = useState();
+    const [res, setres] = useState({
+        data:{
+            mesaj:"",
+        }
+    });
     const [userForm,setUserForm] = useState({
         userEmail:"",
         password:"",
   })
   useEffect(()=>{
-    console.log("calıştııııı")
     async function girisyap(){
     await axios.post('http://localhost:5000/api/user/giris',{
     "email":userForm.userEmail,
     "sifre":userForm.password
  }).then((res)=>{
-    console.log("token", res.data);
+    if(res.data.mesaj==="Girilen email/sifre hatali"){
+        console.log("login olmadı")
+    }else{
+        console.log("mesajjjj:",res.data)
     dispatch(setToken(res.data.token))
+    dispatch(setUser(res.data.user))
+    }
+    
+    
+    
  })}
  girisyap()
   },[loginBtn])
@@ -43,7 +62,8 @@ const Login = ({rhBtn,logBtn}) => {
                 </p>
                 </div>
             </Form>
-            <button className="login-modal" onClick={()=>{loginBtn==true ? setLoginBtn(false) : setLoginBtn((true)) }}>login</button>
+            <button className="login-modal" onClick={()=>{loginBtn==true ? setLoginBtn(false) : setLoginBtn((true))
+            }}>login</button>
             <button onClick={()=>{dispatch(homeKey())}} className="close-modal">X</button>
         </div>
         

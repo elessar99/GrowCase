@@ -1,19 +1,24 @@
 import {useRoutes} from "react-router-dom"
-import HomeView from "../views/HomeView"
+import CaseView from "../views/CaseView"
+import OpenView from "../views/OpenView";
+import "./Router.css";
 
 const Router = () => {
     const routes = useRoutes(
         [
             {
                 path: '/',
-                element: <HomeView/>
+                element: <CaseView/>
+            },
+            {
+                path: "/open/:id",
+                element: <OpenView/>,
             },
 
 
             {
                 path: '*',
-                element: <div style={{backgroundColor : "grey",
-                height: '100vh',display:"flex",justifyContent:"center",alignItems:"center",zIndex:"-10"}}>
+                element: <div className="notFound">
                     404 Not Found
                 </div>
             }

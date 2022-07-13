@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 .headerNav{
+    z-index: 1;
     position: fixed;
     display: flex;
     align-items: center;
@@ -38,6 +39,7 @@
     display: flex;
 }
 .navBar{
+    z-index: 1;
     position: fixed;
     align-items: center;
     justify-content: center;

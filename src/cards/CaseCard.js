@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import './CaseCard.css';
+import './Card.css';
 
 const CaseCard = ({caseName,casePrice,caseImg,baseSrc,caseType,onClick}) => {
     return(

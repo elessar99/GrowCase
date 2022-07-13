@@ -17,8 +17,8 @@ const persistConfig={
     key:"root",
     storage,
     version:1,
-    whitelist:["token","user"],
-    blacklist:['case',"logRegKey"]
+    whitelist:["token","user",'case'],
+    blacklist:[,"logRegKey"]
 }
 
 const persistedReducer=persistReducer(persistConfig,reducer)

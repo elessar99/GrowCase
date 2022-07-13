@@ -1,0 +1,13 @@
+.openView{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(80, 80, 80);
+    min-height:100vh;
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0em 0em 0em 10em;
+}
+.headerayar{
+    margin: 4.2em 0em 0em 10em;
+}

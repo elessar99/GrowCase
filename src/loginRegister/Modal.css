@@ -10,6 +10,7 @@ body.active-modal {
 }
 
 .modal, .overlay {
+    z-index: 5;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -23,6 +24,7 @@ body.active-modal {
     background: rgba(49,49,49,0.8);
 }
 .modal-content {
+    z-index: 6;
     position: absolute;
     top: 40%;
     left: 50%;
