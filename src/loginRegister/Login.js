@@ -8,6 +8,8 @@ import {useDispatch, useSelector} from "react-redux";
 import { homeKey, registerKey } from "../store/actions/logRegAction";
 import { setToken } from "../store/actions/loginTokenAction";
 import { setUser } from "../store/actions/loginAction";
+import { setControl } from "../store/actions/loginControlAction";
+import { setBlance } from "../store/actions/blanceAction";
 
 const Login = ({rhBtn,logBtn}) => {
     const user={
@@ -39,6 +41,9 @@ const Login = ({rhBtn,logBtn}) => {
         console.log("mesajjjj:",res.data)
     dispatch(setToken(res.data.token))
     dispatch(setUser(res.data.user))
+    dispatch(setControl(true))
+    dispatch(homeKey())
+    dispatch(setBlance(res.data.user.bakiye))
     }
     
     

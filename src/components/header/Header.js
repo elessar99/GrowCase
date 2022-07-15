@@ -1,6 +1,8 @@
 import React ,{useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { setUser } from "../../store/actions/loginAction";
+import { setBlance } from "../../store/actions/blanceAction";
+import { setControl } from "../../store/actions/loginControlAction";
+import { setToken } from "../../store/actions/loginTokenAction";
 import { loginKey , registerKey} from "../../store/actions/logRegAction";
 import './Header.css'
 
@@ -10,19 +12,21 @@ const Header = () =>{
     
     const keyState=useSelector(state=>state.logRegKey)
     const dispatch=useDispatch()
-    const caseState=useSelector(state=>state.case)
     const userState=useSelector(state=>state.user)
-    const [token, setToken] = useState(true);
+    const token=useSelector(state=>state.loginControl) 
     return(
         <nav className="headerNav"> 
         <a onClick={()=>{
-            setToken(!token)
+            console.log("denemeee")
                 }} className="webHeader">GROWCASE.net</a>
-        {token&&(<div className="userLogin">
+        {token.control&&(<div className="userLogin">
             <div>{userState.userName} </div>
-            <div>hesap</div>
+            <a onClick={()=>{
+                dispatch(setControl(false))
+                dispatch(setToken("none"))
+            }}>hesap</a>
         </div>)}
-        {!token&&(<div className="loginRegister">
+        {!token.control&&(<div className="loginRegister">
             <a onClick={()=>{
                 dispatch(loginKey())
                 console.log(keyState)

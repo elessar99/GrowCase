@@ -72,10 +72,19 @@
     width: 75%;
 }
 .WlDl{
-    position:static ;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
     right: 0px;
     margin-right: 11em;
     margin-left: 11em;
+    width: 25%;
+    
+}
+.bldlwl{
+    padding-left: 0.8em;
+    font-size: 1.2em;
 }
 .userLogin{
     display: flex;

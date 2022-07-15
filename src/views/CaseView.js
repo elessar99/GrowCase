@@ -5,6 +5,8 @@ import {setCase} from "../store/actions/caseAction";
 import axios from "axios";
 import "./CaseView.css";
 import { NavLink } from "react-router-dom";
+import { controlFalse, setControl } from "../store/actions/loginControlAction";
+import { setBlance } from "../store/actions/blanceAction";
 
 const CaseView=()=>{
     const dispatch=useDispatch()
@@ -20,7 +22,24 @@ const CaseView=()=>{
      },[])
      const caseState = useSelector((state=>state.case));
      const tokenState = useSelector((state=>state.token));
+     useEffect(() => {
+        async function controlData(token){
+            const response= await axios.get(`http://localhost:5000/api/user/bakiyesorgu`,{
+                headers: { "Authorization":`Bearer ${token}`}
+            })
+            if(!response.data.bakiye){
+                dispatch(setControl(false))
 
+            }
+            else{
+                dispatch(setBlance((response.data.bakiye)))
+                console.log(response.data.bakiye)
+                dispatch(setControl(true))
+            }
+        };
+        controlData(tokenState.token)
+     }, []);
+     
     return(
     <>
     <div>.</div>
