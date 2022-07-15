@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+.dropCard{
+    min-width: 15em;
+    min-height: 15em;
+    background-color: rgba(120, 120, 130,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    box-shadow: 2px 2px 0px rgba(200, 200, 200,0.2);
+}
+.dropImg{
+    margin: 2px;
+    width: 120px;
+    height: 120px;
+}
+.dropCard:hover{
+    box-shadow: 2px 4px 6px rgba(200, 50, 200);
+}
+.dropName{
+    font-family: 'Yellowtail', cursive, serif;
+    color: rgb(0, 0, 0);
+    font-size: 2em;
+    margin-top: 2px;
+}
+.dropRate{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(20, 20, 20);
+    font-size: 10px;
+}
+.dropInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal, .overlay {
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+.modal-content {
+    z-index: 6;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+}
+.modalItem{
+    z-index: 6;
+    background-color: rgba(49,49,49,0.8);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}

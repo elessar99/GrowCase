@@ -38,7 +38,7 @@ const Login = ({rhBtn,logBtn}) => {
     if(res.data.mesaj==="Girilen email/sifre hatali"){
         console.log("login olmadı")
     }else{
-        console.log("mesajjjj:",res.data)
+        console.log(res.data.mesaj)
     dispatch(setToken(res.data.token))
     dispatch(setUser(res.data.user))
     dispatch(setControl(true))

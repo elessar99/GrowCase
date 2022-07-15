@@ -24,7 +24,6 @@ const Register = ({rhBtn,logBtn}) => {
         "sifre":userForm.password,
         "resifre":userForm.rPassword,
  }).then((res)=>{
-    console.log(res);
  })}
  girisyap()
   },[registerBtn])

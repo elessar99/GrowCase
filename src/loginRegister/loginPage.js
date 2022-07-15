@@ -10,13 +10,11 @@ export default function LoginPage({rhBtn,logBtn}) {
   const [login, setlogin] = useState(false);
 
   const keyState=useSelector((state => state.logRegKey))
-  console.log(keyState)
   const dispatch=useDispatch()
 
   const toggleModal = () => {
     setlogin(!login);
     dispatch(homeKey())
-    console.log(keyState.key)
   };
 
   if(login) {

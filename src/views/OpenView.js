@@ -1,14 +1,18 @@
 import './View.css'
 import { useEffect ,useState} from 'react'
 import {useParams} from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import OpenCaseCard from '../cards/OpenCaseCard'
 import axios from 'axios'
 import ItemCard from '../cards/ItemCard'
+import { setControl } from '../store/actions/loginControlAction'
+import { setBlance } from '../store/actions/blanceAction'
 
 const OpenView=()=>{
+    const dispatch = useDispatch();
     const {id}=useParams()
     const caseState = useSelector((state => state.case))
+    const tokenState = useSelector((state => state.token))
     const [caseInfo, setCaseInfo] = useState(0);
     console.log(caseState)
     const fetchData=async()=>{
@@ -22,6 +26,23 @@ const OpenView=()=>{
     useEffect(()=>{
         fetchData()
      },[])
+     useEffect(() => {
+        async function controlData(token){
+            const response= await axios.get(`http://localhost:5000/api/user/bakiyesorgu`,{
+                headers: { "Authorization":`Bearer ${token}`}
+            })
+            if(!response.data.bakiye){
+                dispatch(setControl(false))
+
+            }
+            else{
+                dispatch(setBlance((response.data.bakiye)))
+                console.log(response.data.bakiye)
+                dispatch(setControl(true))
+            }
+        };
+        controlData(tokenState.token)
+     }, []);
      console.log("itemsss",caseInfo)
      console.log("caseeee",caseState)
   return (

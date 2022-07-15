@@ -1,9 +1,10 @@
 import React ,{useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import { NavLink } from "react-router-dom";
 import { setBlance } from "../../store/actions/blanceAction";
 import { setControl } from "../../store/actions/loginControlAction";
 import { setToken } from "../../store/actions/loginTokenAction";
-import { loginKey , registerKey} from "../../store/actions/logRegAction";
+import { homeKey, loginKey , registerKey} from "../../store/actions/logRegAction";
 import './Header.css'
 
 
@@ -16,9 +17,9 @@ const Header = () =>{
     const token=useSelector(state=>state.loginControl) 
     return(
         <nav className="headerNav"> 
-        <a onClick={()=>{
-            console.log("denemeee")
-                }} className="webHeader">GROWCASE.net</a>
+        <NavLink to="/" onClick={()=>{
+            dispatch(homeKey())
+                }} className="webHeader">GROWCASE.net</NavLink>
         {token.control&&(<div className="userLogin">
             <div>{userState.userName} </div>
             <a onClick={()=>{

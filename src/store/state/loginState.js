@@ -1,6 +1,8 @@
 export const loginState={
-    blance:0,
+    bakiye:0,
     userName:"",
     itemList:null,
-    __id:""
+    __id:"",
+    token:"none"
+
 }

@@ -1,3 +1,3 @@
 export const tokenState={
-    token:""
+    token:"none"
 }
