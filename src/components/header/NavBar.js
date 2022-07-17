@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import './Header.css'
 
 const NavBar = () =>{
@@ -11,7 +12,7 @@ const NavBar = () =>{
         <nav className="navBtnBar">
             <header className="navHeaders">Home</header>
         <header className="navHeaders">Inventory</header>
-        <header className="navHeaders">WL Deposit Withdrawal</header>
+        <NavLink to="/request/" className="navHeaders">WL Deposit Withdrawal</NavLink>
         </nav>
         {controlState.control &&(<div className="WlDl">
         
