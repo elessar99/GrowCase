@@ -18,7 +18,7 @@ const Register = ({rhBtn,logBtn}) => {
   })
   useEffect(()=>{
     async function girisyap(){
-    await axios.post('http://localhost:5000/api/user/uyeol',{
+    await axios.post(process.env.REACT_APP_URL+'/api/user/uyeol',{
         "userName":userForm.userName,
         "email":userForm.userEmail,
         "sifre":userForm.password,

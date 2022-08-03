@@ -16,7 +16,7 @@ const OpenView=()=>{
     const [caseInfo, setCaseInfo] = useState(0);
     console.log(caseState)
     const fetchData=async()=>{
-        const response=await axios.get(`http://localhost:5000/api/case/n/`,{
+        const response=await axios.get(process.env.REACT_APP_URL+`/api/case/n/`,{
             params:{
                 name:id
             }
@@ -28,11 +28,12 @@ const OpenView=()=>{
      },[])
      useEffect(() => {
         async function controlData(token){
-            const response= await axios.get(`http://localhost:5000/api/user/bakiyesorgu`,{
+            const response= await axios.get(process.env.REACT_APP_URL+`/api/user/bakiyesorgu`,{
                 headers: { "Authorization":`Bearer ${token}`}
             })
             if(!response.data.bakiye){
                 dispatch(setControl(false))
+                console.log(response.data)
 
             }
             else{

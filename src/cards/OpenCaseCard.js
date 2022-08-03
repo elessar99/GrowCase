@@ -15,7 +15,7 @@ const OpenCaseCard = ({caseName,casePrice,caseImg,baseSrc,caseType,onClick}) => 
     const dispatch = useDispatch();
     console.log(tokenState)
     const fetchData=async()=>{
-        const response= await axios.post(`http://localhost:5000/api/case/kasaac`,{
+        const response= await axios.post(process.env.REACT_APP_URL+`/api/case/kasaac`,{
             "isim":caseName
         },{
             headers: { "Authorization":`Bearer ${tokenState.token}`}

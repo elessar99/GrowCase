@@ -31,7 +31,7 @@ const Login = ({rhBtn,logBtn}) => {
   })
   useEffect(()=>{
     async function girisyap(){
-    await axios.post('http://localhost:5000/api/user/giris',{
+    await axios.post(process.env.REACT_APP_URL+'/api/user/giris',{
     "email":userForm.userEmail,
     "sifre":userForm.password
  }).then((res)=>{

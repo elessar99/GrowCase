@@ -8,11 +8,13 @@ import { NavLink } from "react-router-dom";
 import { controlFalse, setControl } from "../store/actions/loginControlAction";
 import { setBlance } from "../store/actions/blanceAction";
 
+
 const CaseView=()=>{
     const dispatch=useDispatch()
     const [data,setData]=useState([])
     const fetchData=async()=>{
-        const response=await axios.get('http://localhost:5000/api/case/all')
+        console.log(process.env.REACT_APP_URL)
+        const response=await axios.get(process.env.REACT_APP_URL+'/api/case/all')
         setData(response.data);
         console.log("kasaları aldım", data)
         dispatch(setCase(response.data));
@@ -24,11 +26,14 @@ const CaseView=()=>{
      const tokenState = useSelector((state=>state.token));
      useEffect(() => {
         async function controlData(token){
-            const response= await axios.get(`http://localhost:5000/api/user/bakiyesorgu`,{
+            const response= await axios.get(process.env.REACT_APP_URL+`/api/user/bakiyesorgu`,{
                 headers: { "Authorization":`Bearer ${token}`}
             })
             if(!response.data.bakiye){
                 dispatch(setControl(false))
+                console.log("token ile data baseden bakiye alamadım ")
+                console.log(token)
+                console.log(response.data.bakiye)
 
             }
             else{
