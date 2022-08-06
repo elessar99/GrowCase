@@ -9,6 +9,7 @@ import loginTokenReducer from "./reducers/loginTokenReducer";
 import loginReducer from "./reducers/loginReducer";
 import blanceReducer from "./reducers/blanceReducer";
 import loginControlReducer from "./reducers/loginControlReducer";
+import itemReducer from "./reducers/itemReducers";
 const reducer=combineReducers({
     case:caseReducer,
     logRegKey:logRegReducer,
@@ -16,13 +17,14 @@ const reducer=combineReducers({
     user:loginReducer,
     blance:blanceReducer,
     loginControl:loginControlReducer,
+    item:itemReducer,
 })
 const persistConfig={
     key:"root",
     storage,
     version:1,
     whitelist:["token","user",],
-    blacklist:['case',"logRegKey","blance","loginControl"]
+    blacklist:['case',"logRegKey","blance","loginControl","item"]
 }
 
 const persistedReducer=persistReducer(persistConfig,reducer)
