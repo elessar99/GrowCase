@@ -146,7 +146,7 @@ const WlWithdrawal=()=>{
             )}
             
             <button onClick={() => {
-                dispatch(setBlance((blanceState.blance +fetcWlInfo.istekMiktar)))
+                dispatch(setBlance((blanceState.blance + fetcWlInfo.istekMiktar)))
                 deleteWl(tokenState.token)
             }}>Delete</button>
             </div>
