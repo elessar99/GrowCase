@@ -26,7 +26,7 @@ const ItemWithdrawal=()=>{
     }, []);
     return(
         <div>
-        <ItemWithdrawalCard/>
+        
         {/* <ItemWithdrawalCard itemName={itemList[0].key}
             itemImg={itemList[0].itemSrc}
             itemMiktar={itemList[0].value}
