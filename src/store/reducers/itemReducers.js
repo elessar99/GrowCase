@@ -5,7 +5,8 @@ function itemReducer(state=itemState,action){
   
         case "SET_ITEM":
             return {
-                blance:action.payload,
+                key:action.payload.key,
+                value:action.payload.value,
             }
         default:
             return  state

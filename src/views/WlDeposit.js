@@ -1,8 +1,6 @@
-import { wait } from '@testing-library/user-event/dist/utils';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import Input from '../loginRegister/Input';
 import { setBlance } from '../store/actions/blanceAction';
 import './Request.css'
 

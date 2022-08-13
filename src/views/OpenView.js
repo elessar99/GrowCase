@@ -33,7 +33,6 @@ const OpenView=()=>{
             })
             if(!response.data.bakiye){
                 dispatch(setControl(false))
-                console.log(response.data)
 
             }
             else{

@@ -38,7 +38,6 @@ const WlWithdrawal=()=>{
         })
         if(!response.data){
             setControl(true)
-            console.log("gelen response yokkkk")
         }else{
             setfetcWlInfo(response.data)
             setControl(false)
