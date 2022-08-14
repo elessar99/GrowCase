@@ -10,8 +10,8 @@ const NavBar = () =>{
     return(
         <nav className="navBar"> 
         <nav className="navBtnBar">
-            <header className="navHeaders">Home</header>
-        <header className="navHeaders">Inventory</header>
+            <NavLink to="/" className="navHeaders">Home</NavLink>
+        <NavLink to="/inventory" className="navHeaders">Inventory</NavLink>
         <NavLink to="/request/" className="navHeaders">WL Deposit Withdrawal</NavLink>
         </nav>
         {controlState.control &&(<div className="WlDl">

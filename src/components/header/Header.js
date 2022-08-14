@@ -25,7 +25,7 @@ const Header = () =>{
             <a onClick={()=>{
                 dispatch(setControl(false))
                 dispatch(setToken("none"))
-            }}>hesap</a>
+            }}>cıkış yap</a>
         </div>)}
         {!token.control&&(<div className="loginRegister">
             <a onClick={()=>{
