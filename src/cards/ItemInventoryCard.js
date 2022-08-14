@@ -42,7 +42,7 @@ const ItemInventoryCard = ({itemName,itemImg,itemMiktar,itemFiyat}) => {
     alt="item"/>
     <div className="itemInfo">
         <div>mevcut item : {itemMiktari}</div>
-        <div><div className="WlDl">
+        <div><div>
         
         <div className="bldlwl">
         {parseInt(itemFiyat/10000)} <img className="wlimage"

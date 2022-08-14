@@ -42,7 +42,7 @@ useEffect(() => {
         headers: { "Authorization": `Bearer ${tokenState.token}` }
     })
     setİtemlist(response.data.userItems)
-    console.log(response.data)
+    console.log("item sorgusu: ",response.data)
 }
 useEffect(() => {
     fetchData()
@@ -56,13 +56,16 @@ useEffect(() => {
             <div>inventory</div>
             
         </nav>
-        {itemlist.map((item)=>{
+        <div className="inventory">
+          {itemlist.map((item)=>{
                     return(
                         <>
                         <div>
                     <ItemInventoryCard itemImg={item.itemSrc} itemMiktar={item.value} itemName={item.key} itemFiyat={item.itemFiyat}/>
                 </div></>)
-                })}
+                })}  
+        </div>
+        
         </div>
     </>
     

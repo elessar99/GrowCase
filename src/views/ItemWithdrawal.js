@@ -7,7 +7,12 @@ import { setItem } from '../store/actions/itemAction';
 import ItemCekmeCard from '../cards/ItemCekmeCard';
 
 const ItemWithdrawal = () => {
+    const [listState, setListState] = useState({
+        growID:"",
+        word:"",
+    });
     const itemState = useSelector((state => state.item))
+    const [istek, setİstek] = useState();
     const dispatch = useDispatch()
     const tokenState = useSelector((state => state.token.token));
     const [itemList, setİtemList] = useState([]);
@@ -38,10 +43,11 @@ const ItemWithdrawal = () => {
                 console.log("istek yok")
             }else{
                 setİtemList2(response?.data?.istekItems);
+                setİstek(response?.data)
                 setControl2(!control2)
             }
             console.log("istek ===")
-            console.log(response.data.istekItems)
+            console.log(response.data)
         } catch (error) {
             console.log(error);
         }
@@ -50,7 +56,9 @@ const ItemWithdrawal = () => {
         const myJson = JSON.stringify(val)
         console.log(myJson)
         const response = await axios.post(process.env.REACT_APP_URL+`/api/user/itemistekolustur`,{
-            "istekItems":val
+            "istekItems":val,
+            "gId":listState.growID,
+            "worldName":listState.word
         },{
             headers: { "Authorization":`Bearer ${tokenState}`}
         })
@@ -92,7 +100,6 @@ const ItemWithdrawal = () => {
     return (
         <div className='itemCekmeBody'>
         <div>
-        item
             {
                 itemList.length > 0 && !control &&
                 itemList.map((item) => {
@@ -128,6 +135,7 @@ const ItemWithdrawal = () => {
                 })}
                 </div>
                 <div>
+                {control && !test && (<div>item cekme statüsü : {istek.istekStatus}<br/>GrowID : {istek.gId} <br/> Word Name : {istek.worldName}</div>)}
                 {
                 (control && !test &&
                 itemList2.map((item) => {
@@ -143,12 +151,12 @@ const ItemWithdrawal = () => {
                             
                         </>)
                 }))}
-                <button onClick={async()=>{
+                {control && !test && (<button onClick={async()=>{
                     const response = await axios.get(process.env.REACT_APP_URL + '/api/user/itemisteksil', {
                 headers: { "Authorization": `Bearer ${tokenState}` }
             })
                 }}>
-                sil</button>
+                sil</button>)}
                 </div>
                 <div>
                 {                  
@@ -167,9 +175,16 @@ const ItemWithdrawal = () => {
                         </>)
                 }))    
                     }
+                {test && !control &&(
+                    <div>
+                    <input value={listState.growID} onChange={(e)=>{
+                setListState({ ...listState, growID:e.target.value })}} placeholder='grow id'/><br/>
+                <input value={listState.word} onChange={(e)=>{
+                setListState({ ...listState, word:e.target.value })}} placeholder='world name'/><br/>
                 <button onClick={()=>{
                     olusturData(itemList3)
                 }}>gönder</button>
+                </div>)}
                 </div>
         </div>
     )
