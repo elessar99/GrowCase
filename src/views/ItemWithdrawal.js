@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setItem } from '../store/actions/itemAction';
 import ItemCekmeCard from '../cards/ItemCekmeCard';
+import ItemCekmeCard2 from '../cards/ItemCekmeCard2';
 
 const ItemWithdrawal = () => {
     const [listState, setListState] = useState({
@@ -142,7 +143,7 @@ const ItemWithdrawal = () => {
                     return (
                         <>
                             <div>
-                            <ItemCekmeCard itemName={item.key}
+                            <ItemCekmeCard2 itemName={item.key}
                                     itemMiktar={item.value}
                                     itemImg={item.itemSrc}
                                 />
