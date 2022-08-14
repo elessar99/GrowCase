@@ -11,16 +11,19 @@ const ItemWithdrawal = () => {
     const dispatch = useDispatch()
     const tokenState = useSelector((state => state.token.token));
     const [itemList, setİtemList] = useState([]);
-    const [itemList2, setİtemList2] = useState([]);
+    const [itemList2, setİtemList2] = useState("false");
     const [itemList3, setİtemList3] = useState([]);
     const [test1, setTest1] = useState(false);
     const [test, setTest] = useState(false);
+    const [control, setControl] = useState(false);
+    const [control2, setControl2] = useState(false);
     const fetchData = async () => {
         try {
             const response = await axios.get(process.env.REACT_APP_URL + '/api/user/itemssorgu', {
                 headers: { "Authorization": `Bearer ${tokenState}` }
             })
             setİtemList(response?.data?.userItems);
+            console.log("istekte olan item")
             console.log(response.data)
         } catch (error) {
             console.log(error);
@@ -34,10 +37,11 @@ const ItemWithdrawal = () => {
             if(response.data == "istek mevcut degil"){
                 console.log("istek yok")
             }else{
-                setİtemList2(response?.data);
+                setİtemList2(response?.data?.istekItems);
+                setControl2(!control2)
             }
             console.log("istek ===")
-            console.log(response.data)
+            console.log(response.data.istekItems)
         } catch (error) {
             console.log(error);
         }
@@ -61,6 +65,23 @@ const ItemWithdrawal = () => {
         }
     }, [test1]);
     useEffect(() => {
+        if(itemList2==="false"){
+            console.log("boşsss")
+        }else{
+            console.log(itemList2)
+            if(itemList2.length>0){
+            setControl(false)
+            setControl(true)
+            console.log(itemList2)
+            console.log("true oldu")
+            }else{
+            setControl(false)
+            }
+            console.log(control)
+        }
+        
+    }, [control2]);
+    useEffect(() => {
         tokenState && fetchData();
         console.log("list",itemList)
     }, [tokenState, dispatch]);
@@ -73,7 +94,7 @@ const ItemWithdrawal = () => {
         <div>
         item
             {
-                itemList.length > 0 &&
+                itemList.length > 0 && !control &&
                 itemList.map((item) => {
                     return (
                         <>
@@ -82,7 +103,10 @@ const ItemWithdrawal = () => {
                                     itemMiktar={item.value}
                                     itemImg={item.itemSrc}
                                     istekItem={(istek)=>{
-                                        let control=true;
+                                        if(control){
+                                            console.log("istek mevcut")
+                                        }else{
+                                            let control=true;
                                         itemList3.map((item)=>{
                                             if(item.itemName==istek.itemName){
                                                 item.value+=istek.value
@@ -94,6 +118,8 @@ const ItemWithdrawal = () => {
                                             }
                                         setTest1(!test1)
                                         console.log(itemList3)
+                                        }
+                                        
                                     }}
                                 />
                             </div>
@@ -102,9 +128,9 @@ const ItemWithdrawal = () => {
                 })}
                 </div>
                 <div>
-                {/* {
-                itemList2.istekItems.length > 0 &&
-                itemList2.istekItems.map((item) => {
+                {
+                (control && !test &&
+                itemList2.map((item) => {
                     return (
                         <>
                             <div>
@@ -114,12 +140,19 @@ const ItemWithdrawal = () => {
                                 />
                             </div>
                             
+                            
                         </>)
-                })} */}
+                }))}
+                <button onClick={async()=>{
+                    const response = await axios.get(process.env.REACT_APP_URL + '/api/user/itemisteksil', {
+                headers: { "Authorization": `Bearer ${tokenState}` }
+            })
+                }}>
+                sil</button>
                 </div>
                 <div>
                 {                  
-                    (test &&
+                    (test && !control &&
                 itemList3.map((item) => {
                     console.log("denemeee")
                     return (

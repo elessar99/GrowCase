@@ -5,6 +5,7 @@ import OpenView from "../views/OpenView";
 import Request from "../views/Request";
 import WlDeposit from "../views/WlDeposit";
 import WlWithdrawal from "../views/WlWithdrawal";
+import Inventory from "../views/Inventory";
 import "./Router.css";
 
 const Router = () => {
@@ -13,6 +14,10 @@ const Router = () => {
             {
                 path: '/',
                 element: <CaseView/>
+            },
+            {
+                path: '/inventory',
+                element: <Inventory/>
             },
             {
                 path: "/open/:id",

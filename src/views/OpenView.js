@@ -33,7 +33,6 @@ const OpenView=()=>{
             })
             if(!response.data.bakiye){
                 dispatch(setControl(false))
-
             }
             else{
                 dispatch(setBlance((response.data.bakiye)))
@@ -70,7 +69,6 @@ const OpenView=()=>{
             }))}
 
     </div>
-    
     </div>
         
     </>
