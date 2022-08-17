@@ -47,15 +47,15 @@ const Register = ({rhBtn,logBtn}) => {
                 </div>
             </Form>
             <button className="register-modal" onClick={()=>{
-                    if(userForm.email == "" ){
+                    if(userForm.userEmail === "" ){
                         alert("lütfen e-mail girin")
-                    }else if(userForm.userName == "" ){
+                    }else if(userForm.userName === "" ){
                         alert("lütfen username girin")
                     }else if(userForm.password.length < 6){
                         alert("şifre en az 6 haneli olmalı")
-                    }else if(userForm.password == "" ){
+                    }else if(userForm.password === "" ){
                         alert("lütfen şifre girin")
-                    }else if(userForm.password != userForm.rPassword ){
+                    }else if(userForm.password !== userForm.rPassword ){
                         alert("lütfen aynı şifreyi girin")
                     }else{
                         alert("kayıt başarılı")

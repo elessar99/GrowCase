@@ -46,8 +46,6 @@ const Router = () => {
                 ]
 
             },
-
-
             {
                 path: '*',
                 element: <div className="notFound">

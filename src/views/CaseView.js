@@ -29,7 +29,7 @@ const CaseView=()=>{
             const response= await axios.get(process.env.REACT_APP_URL+`/api/user/bakiyesorgu`,{
                 headers: { "Authorization":`Bearer ${token}`}
             })
-            if(!response.data.bakiye){
+            if(!response.data.bakiye && response.data.bakiye !== 0){
                 dispatch(setControl(false))
                 console.log("token ile data baseden bakiye alamadım ")
                 console.log(token)
